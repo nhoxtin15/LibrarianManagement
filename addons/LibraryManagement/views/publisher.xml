@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_library_book_publisher_tree" model="ir.ui.view">
+        <field name="name">library.book.publisher.tree</field>
+        <field name="model">library.book.publisher</field>
+        <field name="arch" type="xml">
+            <tree string="publishers">
+                <field name="name"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_library_book_publisher_form" model="ir.ui.view">
+        <field name="name">library.book.publisher.form</field>
+        <field name="model">library.book.publisher</field>
+        <field name="arch" type="xml">
+            <form string="publishers">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_library_book_publisher" model="ir.actions.act_window">
+        <field name="name">Author</field>
+        <field name="res_model">library.book.publisher</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_library_book_publisher_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smilling_face">
+                Managing Authors
+            </p>
+        </field>
+    </record>
+
+</odoo> 

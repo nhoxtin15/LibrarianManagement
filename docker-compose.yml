@@ -1,0 +1,49 @@
+version: '3.0'
+
+services:
+  odoo:
+    image: odoo:17
+
+    container_name: odoo_librarian
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+      - POSTGRES_DB=postgres
+    restart: always
+    networks:
+        - odoo-network
+    command: ["-u","LibraryManagement"]
+
+
+  db:
+    image: postgres:15
+    container_name: db_Librarian
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    restart: always
+    networks:
+        - odoo-network
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin1
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+        - "5050:80"
+    networks:
+        - odoo-network
+networks:
+  odoo-network:

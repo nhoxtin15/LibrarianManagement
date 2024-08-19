@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_library_borrow_tree" model="ir.ui.view">
+            <field name="name">library.borrow.tree</field>
+            <field name="model">library.borrow</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                    <field name = "user_id" column_invisible="1"/>
+                    <field name = "borrower_id"/>
+                    <field name="borrow_date"/>
+                    <field name="due_date"/>
+                    <field name="borrowing"/>
+                    <field name="status"/>
+                    <field name = "price"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_library_borrow_form" model="ir.ui.view">
+            <field name="name">library.form</field>
+            <field name="model">library.borrow</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name = "user_id" invisible="1"/>
+                        <field name = "is_confirmed" invisible="1"/>
+                        <field name = "is_not_confirmed" invisible="1"/>
+                        <header>
+                            <button name ="confirm" type="object" string="Confirm" invisible="is_confirmed"/>
+                            <button name ="cancel" type="object" string="Cancel" invisible="is_not_confirmed"/>
+                        </header>
+                        <group>
+
+
+                            <field name = "borrower_id"/>
+                            <field name="borrow_date"/>
+                            <field name="due_date"/>
+                            <field name="borrowing"/>
+                            <field name="status"/>
+                            <field name = "price"/>
+                        </group>
+
+
+                    </sheet>
+
+
+
+                </form>
+            </field>
+        </record>
+
+        <record id="action_library_borrow_manager" model="ir.actions.act_window">
+            <field name="name">Borrowing</field>
+            <field name="res_model">library.borrow</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_library_borrow_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smilling_face">
+                    Managing Books
+                </p>
+            </field>
+        </record>
+        <record id="action_library_borrow_user" model="ir.actions.act_window">
+            <field name="name">Borrowing</field>
+            <field name="res_model">library.borrow</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_library_borrow_tree"/>
+            <field name="domain">
+                [('user_id', '=', uid)]
+            </field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smilling_face">
+                    Managing Books
+                </p>
+            </field>
+        </record>
+    </data>
+
+</odoo> 

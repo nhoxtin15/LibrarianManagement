@@ -1,0 +1,3 @@
+FROM odoo_enviroment:1
+
+RUN pip3 show cffi

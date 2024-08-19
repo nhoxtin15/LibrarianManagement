@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_library_book_genre_tree" model="ir.ui.view">
+        <field name="name">library.book.genre.tree</field>
+        <field name="model">library.book.genre</field>
+        <field name="arch" type="xml">
+            <tree string="Genres">
+                <field name="name"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_library_book_genre_form" model="ir.ui.view">
+        <field name="name">library.book.genre.form</field>
+        <field name="model">library.book.genre</field>
+        <field name="arch" type="xml">
+            <form string="Genres">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_library_book_genre" model="ir.actions.act_window">
+        <field name="name">Author</field>
+        <field name="res_model">library.book.genre</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_library_book_genre_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smilling_face">
+                Managing Authors
+            </p>
+        </field>
+    </record>
+
+</odoo> 

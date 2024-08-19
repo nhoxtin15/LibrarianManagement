@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="thinhDepTrai" name="Librarian" >
+        <menuitem id="menu_book" name="Books" action="action_library_book" sequence="1"/>
+        <menuitem id="menu_copies" name="Copies" action="action_library_copies" sequence="2"/>
+        <menuitem id="menu_borrow_manager" name="Borrow" action="action_library_borrow_manager" sequence="3" groups = "LibraryManagement.group_library_librarian"/>
+        <menuitem id="menu_borrow_user" name="Borrow" action="action_library_borrow_user" sequence="3" groups = "LibraryManagement.group_library_user"/>
+        <menuitem id="setting" name="Setting" sequence="4">
+            <menuitem id="setting_author" name="Authors" action="action_library_book_author" />
+            <menuitem id="setting_genre" name="Genres" action="action_library_book_genre" />
+            <menuitem id="setting_area" name="Areas" action="action_library_area" />
+            <menuitem id="setting_publisher" name="Publisher" action="action_library_book_publisher" />
+        </menuitem>
+
+        <menuitem id="customer" name="Customer" action="action_contacts" sequence="5" groups = "LibraryManagement.group_library_librarian"/>
+
+    </menuitem>
+</odoo> 

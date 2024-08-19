@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_library" model="ir.module.category">
+        <field name="name">LibraryManagement</field>
+        <field name="description">Library Management</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="group_library_librarian" model="res.groups">
+        <field name="name">Librarian</field>
+        <field name="category_id" ref="LibraryManagement.module_library"/>
+    </record>
+    <record id="group_library_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="LibraryManagement.module_library"/>
+    </record>
+</odoo>

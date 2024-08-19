@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_library_copies_tree" model="ir.ui.view">
+            <field name="name">library.copies.tree</field>
+            <field name="model">library.copies</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name = "status" column_invisible="1"/>
+                    <field name="id" invisible="1"/>
+                    <field name="name"/>
+                    <field name = "base_price"/>
+                    <field name = "location_id"/>
+                    <field name ="condition"/>
+                    <field name = "status"/>
+
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_library_copies_form" model="ir.ui.view">
+            <field name="name">library.copies.form</field>
+            <field name="model">library.copies</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name = "is_available" invisible="1"/>
+                        <field name="id" invisible="1"/>
+                        <header>
+                            <button name ="create_borrow" type="object" string="Borrow" invisible="not is_available"/>
+                        </header>
+                        <group>
+
+                            <field name="name"/>
+                            <field name = "book_id"/>
+                            <field name = "location_id"/>
+                            <field name = "acquisition_date"/>
+                            <field name = "base_price"/>
+                            <field name ="condition"/>
+                            <field name = "status"/>
+
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="action_library_copies" model="ir.actions.act_window">
+            <field name="name">Copies</field>
+            <field name="res_model">library.copies</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_library_copies_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smilling_face">
+                    Managing Books
+                </p>
+            </field>
+        </record>
+    </data>
+
+</odoo> 
